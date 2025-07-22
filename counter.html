@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>counter in javascript</title>
+    <style>
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+    
+        body {
+          font-family: 'Urbanist', sans-serif;
+          background: linear-gradient(135deg, #667eea, #764ba2);
+          color: #fff;
+          height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+    
+        .counter {
+          background-color: rgba(255, 255, 255, 0.1);
+          padding: 40px;
+          border-radius: 20px;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+          text-align: center;
+          backdrop-filter: blur(10px);
+        }
+    
+        h1 {
+          font-size: 48px;
+          margin-bottom: 40px;
+          letter-spacing: 2px;
+        }
+    
+        .buttons {
+          display: flex;
+          gap: 15px;
+          flex-wrap: wrap;
+          justify-content: center;
+        }
+    
+        button {
+          font-size: 24px;
+          padding: 15px 30px;
+          border: none;
+          border-radius: 12px;
+          cursor: pointer;
+          text-transform: uppercase;
+          transition: all 0.3s ease;
+          background-color: #ff416c;
+          background-image: linear-gradient(to right, #ff4b2b, #ff416c);
+          color: white;
+          box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+    
+        button:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+    
+        button:active {
+          transform: scale(0.95);
+        }
+    
+        @media(max-width: 500px) {
+          h1 {
+            font-size: 32px;
+          }
+    
+          button {
+            font-size: 18px;
+            padding: 12px 20px;
+          }
+        }
+      </style>
+   
+</head>
+<body>
+    <section class="counter">
+        <div class="pat">
+            <button id="subtract">-</button>
+            <button id="rest">reset</button>
+            <button id="cnt">counter</button>
+            
+            <h1 class="hi">counter:0</h1>
+        </div>
+    </section>
+  <script>
+    // taking refrences
+let a=document.getElementById("cnt");
+let b=document.querySelector(".hi");
+let mini=document.getElementById("subtract");
+let reset=document.getElementById("rest");
+var count=0;
+const increment=()=>{
+    for(let i=0;i<1;i++){
+        count=count+1;
+        
+    }
+    console.log(count);
+    b.innerHTML=`counter:${count}`;
+    // adding counter in local storage
+    localStorage.setItem("abdullah-p2",JSON.stringify(count));
+    }
+    
+    const sub=()=>{
+      count=count-1;
+        b.innerHTML=`counter:${count}`;
+        localStorage.setItem("abdullah-p2",JSON.stringify(count));
+    
+    }
+
+
+
+    const res=()=>{
+        count=0;
+        b.innerHTML=`counter:${count}`;
+        localStorage.setItem("abdullah-p2",JSON.stringify(count));
+        
+    }
+    
+        a.addEventListener('click',()=>{
+        
+        
+            increment();
+        })
+        mini.addEventListener('click',()=>{
+            sub();
+        })
+        reset.addEventListener('click',()=>{
+            res();
+        })
+  </script>
+
+
+    
+</body>
+</html>
